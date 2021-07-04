@@ -3,16 +3,16 @@ from django.utils import timezone
 
 def persian_numbers_converter(mystr):
     mynumbers = {
-        "0" : "?",
-        "1" : "?",
-        "2" : "?",
-        "3" : "?",
-        "4" : "?",
-        "5" : "?",
-        "6" : "?",
-        "7" : "?",
-        "8" : "?",
-        "9" : "?",
+        "0" : "۰",
+        "1" : "۱",
+        "2" : "۲",
+        "3" : "۳",         
+        "4" : "۴",
+        "5" : "۵",
+        "6" : "۶",
+        "7" : "۷",
+        "8" : "۸",
+        "9" : "۹",
     }
     for e, p in mynumbers.items():
         mystr = mystr.replace(e, p)
