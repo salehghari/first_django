@@ -30,7 +30,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home, detail
+from blog.views import home, detail, category
 
 
 app_name = 'blog'
@@ -38,6 +38,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('article/<slug:slug>', detail, name="detail"),
+    path('category/<slug:slug>', category, name="category"),
 ]
 
 from django.conf import settings
