@@ -10,7 +10,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>سايت صالح</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <span class="subheading">اینجا بلاگ وب سایت صالح است</span>
                         </div>
                     </div>
                 </div>
@@ -23,9 +23,9 @@
                 {% for article in articles %}
                 <div class="post-preview">
                     <a href="{% url 'detail' article.slug %}"><h2 class="post-title">{{article.title}}</h2></a>
-                    <h3 class="post-subtitle">
+                    <p class="post-subtitle">
                         {{article.description|truncatewords:30}}
-                        </h3>
+                    </p>
                     <p class="post-meta">
                         نوشته شده توسط
                         <a href="#">صالح</a>
