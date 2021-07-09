@@ -4135,7 +4135,6 @@ textarea.form-control-lg {
 .navbar-expand .navbar-toggler {
   display: none;
 }
-
 .navbar-light .navbar-brand {
   color: rgba(0, 0, 0, 0.9);
 }
@@ -10633,7 +10632,7 @@ blockquote {
     background: transparent;
   }
   #mainNav .navbar-brand {
-    color: #fff;
+    color: rgb(185, 137, 137);
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
     color: rgba(255, 255, 255, 0.8);

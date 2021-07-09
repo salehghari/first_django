@@ -37,6 +37,7 @@ app_name = 'blog'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('page/<int:page>', home, name='home'),
     path('article/<slug:slug>', detail, name="detail"),
     path('category/<slug:slug>', category, name="category"),
 ]
