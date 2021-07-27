@@ -3,8 +3,8 @@
         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.html">خانه</a></li>
         {% for cat in category %}
             {% if cat.parent == None %}
-                <li class="nav-fill"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'category' cat.slug %}">{{cat.title}}</a>
-                    {% if cat.children.all %}
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'category' cat.slug %}">{{cat.title}}</a>
+                    {% if cat.children.active %}
                         {% include 'blog/partials/category_loop.html' %}
                     {% endif %}
                 </li>
