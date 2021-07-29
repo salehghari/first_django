@@ -30,15 +30,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import home, detail, category
+from blog.views import ArticleList, ArticleDetail, category
 
 
 app_name = 'blog'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('page/<int:page>', home, name='home'),
-    path('article/<slug:slug>', detail, name="detail"),
+    path('', ArticleList.as_view(), name='home'),
+    path('page/<int:page>', ArticleList.as_view(), name='home'),
+    path('article/<slug:slug>', ArticleDetail.as_view(), name="detail"),
     path('category/<slug:slug>', category, name="category"),
     path('category/<slug:slug>/page/<int:page>', category, name='category'),
 ]

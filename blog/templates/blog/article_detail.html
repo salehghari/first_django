@@ -6,17 +6,17 @@
 <link rel="stylesheet" type="text.css" href="red.css">
 {% endblock %}
 
-{% block title %} | {{article.title}} {% endblock %}
+{% block title %} | {{object.title}} {% endblock %}
 
 {% block main %}
         <!-- Page Header-->
-        <header class="masthead" style="width: 1920px; height: 900px; background-image: url('{{article.thumbnail.url}}')">
+        <header class="masthead" style="width: 1920px; height: 900px; background-image: url('{{object.thumbnail.url}}')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>{{article.title}}</h1>
-                            <time>{{article.jpublish}}</time>
+                            <h1>{{object.title}}</h1>
+                            <time>{{object.jpublish}}</time>
                             <span class="subheading">اینجا بلاگ وب سایت صالح است</span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-7 gx-lg-8 justify-content-center">
                     <div class="col-md-13 col-lg-11 col-xl-10 text-justify">
-                    <p>{{article.description|linebreaks}}</p>
+                    <p>{{object.description|linebreaks}}</p>
                     </div>
                 </div>
             </div>
