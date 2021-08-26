@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Article, Category
 
+# Admin header change
+admin.site.site_header = "وبلاگ جنگویی من"
+
 # admin.site.disable_action('delete_selected')
 
 @admin.action(description='انتشار مقالات انتخاب شده')
@@ -27,11 +30,15 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','thumbnail_tag','slug','jpublish','status')
-    list_filter = ('publish', 'status')
+    list_display = ('title','thumbnail_tag','slug','author','jpublish','status','category_to_str')
+    list_filter = ('publish', 'status', 'author')
     search_fields = ('title', 'description')
     prepopulated_fields = {"slug":("title",)}
     ordering = ["-status", "-publish"]
     actions = [make_published, make_draft]
+
+    def category_to_str(self, obj):
+        return ", ".join([category.title for category in obj.category.active()])
+    category_to_str.short_description = "دسته بندی"
 
 admin.site.register(Article, ArticleAdmin)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils.html import format_html
 from django.utils import timezone
 from extensions.utils import jalali_converter
@@ -34,6 +35,7 @@ class Article(models.Model):
         ('d', 'پيشن‌‌ويس'),
         ('p', 'منتشر شده'),
     )
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name="articles", verbose_name="نویسنده")
     title = models.CharField(max_length=200, verbose_name = "عنوان مقاله")
     slug = models.SlugField(max_length=100, unique=True, verbose_name = "آدرس مقاله")
     category = models.ManyToManyField(Category, verbose_name= "دسته‌بندي", related_name="articles")
@@ -54,9 +56,6 @@ class Article(models.Model):
     def jpublish(self):
         return jalali_converter(self.publish)
     jpublish.short_description = "زمان انتشار"
-
-    def category_published(self):
-        return self.category.filter(status=True)
 
     def thumbnail_tag(self):
         return format_html("<img width=100 height=60 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
